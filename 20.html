@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20</title>
+</head>
+<body>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="countCharacters()">Count Characters</button>
+    <p id="result"></p>
+
+    <script>
+        function countCharacters() {
+            const str = document.getElementById('inputString').value;
+            const charCount = {};
+
+            for (let char of str) {
+                if (charCount[char]) {
+                    charCount[char]++;
+                } else {
+                    charCount[char] = 1;
+                }
+            }
+
+            document.getElementById('result').innerHTML = JSON.stringify(charCount);
+        }
+    </script>
+</body>
+</html>

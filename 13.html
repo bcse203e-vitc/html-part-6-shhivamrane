@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+<body>
+<input type="text" id="numberInput" placeholder="Enter numbers here">
+<button onclick="findSecondSmallestAndLargest()">Find</button>
+
+<div class="result" id="result"></div>
+<script>
+    function findSecondSmallestAndLargest() {
+        const input = document.getElementById('numberInput').value;
+        const arr = input.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
+        
+        const uniqueArr = [...new Set(arr)].sort((a, b) => a - b);
+        
+        if (uniqueArr.length < 2) {
+            document.getElementById('result').innerText = "Not enough unique numbers.";
+            return;
+        }
+        const secondSmallest = uniqueArr[1];
+        const secondLargest = uniqueArr[uniqueArr.length - 2];
+        document.getElementById('result').innerText = 
+            `Second Smallest: ${secondSmallest}\nSecond Largest: ${secondLargest}`;
+    }
+</script>
+
+</body>
+</html>

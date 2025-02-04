@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+<body>
+    <div>
+        <label for="valueA">Enter value for a: </label>
+        <input type="number" id="valueA" /><br />
+        
+        <label for="valueB">Enter value for b: </label>
+        <input type="number" id="valueB" /><br />
+
+        <button onclick="swapValues()">Swap Values</button>
+    </div>
+    <div id="original"></div>
+    <div id="result"></div>
+
+    <script>
+        function swapValues() {
+            let a = parseFloat(document.getElementById('valueA').value);
+            let b = parseFloat(document.getElementById('valueB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Please enter valid numbers for both a and b.");
+                return;
+            }
+            document.getElementById('original').innerText = `Before Swap: a = ${a}, b = ${b}`;
+            a = a ^ b; 
+            b = a ^ b; 
+            a = a ^ b; 
+            document.getElementById('result').innerText = `After Swap: a = ${a}, b = ${b}`;
+        }
+    </script>
+</body>
+</html>

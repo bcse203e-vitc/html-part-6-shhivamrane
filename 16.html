@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16</title>
+</head>
+<body>
+    <input type="text" id="numbers" placeholder="Enter numbers separated by commas (e.g., 3,1,4,1,5)">
+    <button onclick="sortArray('asc')">Sort Ascending</button>
+    <button onclick="sortArray('desc')">Sort Descending</button>
+    <p id="result"></p>
+    <script>
+        function sortArray(order) {
+            const input = document.getElementById('numbers').value;
+            const numbers = input.split(',').map(Number);
+            const n = numbers.length;
+
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if ((order === 'asc' && numbers[j] > numbers[j + 1]) || 
+                        (order === 'desc' && numbers[j] < numbers[j + 1])) {
+                        [numbers[j], numbers[j + 1]] = [numbers[j + 1], numbers[j]];
+                    }
+                }
+            }
+
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `Sorted Array (${order}): [${numbers.join(', ')}]`;
+        }
+    </script>
+</body>
+</html>

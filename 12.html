@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+</head>
+<body>
+
+<p>Enter an array of numbers (comma-separated):</p>
+<input type="text" id="arrayInput" placeholder="e.g., 1, 2, 2, 3, 4, 4, 5" />
+<button onclick="removeDuplicates()">Remove Duplicates</button>
+<div class="result" id="result"></div>
+
+<script>
+    function removeDuplicates() {
+        const input = document.getElementById('arrayInput').value;
+        const array = input.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
+        
+        const uniqueArray = [...new Set(array)];
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `Output: [${uniqueArray.join(', ')}]`;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15</title>
+</head>
+<body>
+    <input type="text" id="numbers" placeholder="Enter numbers separated by commas (e.g., 1,2,3,5,6)">
+    <button onclick="findMissingNumber()">Find Missing Number</button>
+    <p id="result"></p>
+    <script>
+        function findMissingNumber() {
+            const input = document.getElementById('numbers').value;
+            const numbers = input.split(',').map(Number);
+            const N = Math.max(...numbers);
+            const expectedSum = (N * (N + 1)) / 2;
+            const actualSum = numbers.reduce((acc, num) => acc + num, 0); 
+            const missingNumber = expectedSum - actualSum; 
+            const resultElement = document.getElementById('result');
+            if (missingNumber > 0) {
+                resultElement.innerHTML = `The missing number is: ${missingNumber}`;
+            } else {
+                resultElement.innerHTML = 'No missing number in the sequence.';
+            }
+        }
+    </script>
+</body>
+</html>

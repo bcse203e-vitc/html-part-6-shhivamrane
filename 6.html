@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+</head>
+<body>
+    <label for="celsiusInput">Enter temperature in Celsius: </label>
+    <input type="number" id="celsiusInput" />
+    <button onclick="convertToFahrenheit()">Convert</button>
+    <div id="result"></div>
+    <script>
+        function convertToFahrenheit() {
+            const celsius = parseFloat(document.getElementById('celsiusInput').value);
+            if (isNaN(celsius)) {
+                document.getElementById('result').innerText = "Please enter a valid number.";
+                return;
+            }
+            const fahrenheit = (celsius * (9 / 5)) + 32;
+            document.getElementById('result').innerText = `Temperature in Fahrenheit: ${fahrenheit.toFixed(2)}°F`;
+        }
+    </script>
+</body>
+</html>

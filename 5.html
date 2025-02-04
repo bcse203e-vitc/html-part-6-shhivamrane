@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+</head>
+<body>
+    <label for="numberInput">Enter an integer: </label>
+    <input type="number" id="numberInput" />
+    <button onclick="countDigits()">Count Digits</button>
+    <div id="result"></div>
+    <script>
+        function countDigits() {
+            const number = document.getElementById('numberInput').value;
+            if (!number) {
+                document.getElementById('result').innerText = "Please enter a valid integer.";
+                return;
+            }
+            const digitCount = Math.abs(number).toString().length;
+            document.getElementById('result').innerText = `Number of digits: ${digitCount}`;
+        }
+    </script>
+</body>
+</html>

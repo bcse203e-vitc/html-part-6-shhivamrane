@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+</head>
+<body>
+    <label for="numberInput">Enter a number: </label>
+    <input type="number" id="numberInput" />
+    <button onclick="reverseDigits()">Reverse</button>
+    <div id="result"></div>
+    <script>
+        function reverseDigits() {
+            const number = get.getElementById
+            if (!number) {
+                document.getElementById('result').innerText = "Please enter a valid number.";
+                return;
+            }
+            const reversedNumber = number.toString().split('').reverse().join('');
+            document.getElementById('result').innerText = `Reversed number: ${reversedNumber}`;
+        }
+    </script>
+</body>
+</html>
